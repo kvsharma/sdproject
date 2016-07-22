@@ -39,7 +39,7 @@ public class UserController {
 
 	@PostConstruct
 	public void init() {
-		logger.info("Start social media pack");
+		logger.info("Start SD Challenge");
 	}
 
 	@RequestMapping(value = ControllerURL.test, method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)

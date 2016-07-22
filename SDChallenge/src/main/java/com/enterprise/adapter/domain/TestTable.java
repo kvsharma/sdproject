@@ -50,4 +50,9 @@ public class TestTable implements Serializable {
 	public void setSalary(long salary) {
 		this.salary = salary;
 	}
+
+	@Override
+	public String toString() {
+		return "TestTable [id=" + id + ", name=" + name + ", salary=" + salary + "]";
+	}
 }

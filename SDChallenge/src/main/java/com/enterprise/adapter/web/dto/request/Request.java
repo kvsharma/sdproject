@@ -24,4 +24,10 @@ public class Request {
 	public void setSalary(long salary) {
 		this.salary = salary;
 	}
+
+	@Override
+	public String toString() {
+		return "Request [name=" + name + ", salary=" + salary + "]";
+	}
+	
 }
