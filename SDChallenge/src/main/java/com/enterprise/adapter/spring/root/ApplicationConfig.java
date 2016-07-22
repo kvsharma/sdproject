@@ -8,6 +8,12 @@ import org.springframework.context.annotation.ImportResource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 
+
+/**
+ * 
+ * @author anuj.kumar2
+ *
+ */
 @Configuration
 @EnableTransactionManagement
 @ImportResource({ "classpath:com/enterprise/adapter/spring/root/application-context.xml" })

@@ -23,6 +23,11 @@ import com.jolbox.bonecp.ConnectionHandle;
 import com.jolbox.bonecp.hooks.AbstractConnectionHook;
 import com.jolbox.bonecp.hooks.AcquireFailConfig;
 
+/**
+ * 
+ * @author anuj.kumar2
+ *
+ */
 @Configuration(value = "domainPersistenceConfig")
 @EnableTransactionManagement
 @PropertySource(value = { "classpath:Configuration/persistence.properties",

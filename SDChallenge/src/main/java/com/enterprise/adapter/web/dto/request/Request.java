@@ -1,5 +1,10 @@
 package com.enterprise.adapter.web.dto.request;
 
+/**
+ * 
+ * @author anuj.kumar2
+ *
+ */
 public class Request {
 	private String name;
 	private long salary;

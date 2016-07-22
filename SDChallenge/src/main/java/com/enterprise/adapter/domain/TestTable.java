@@ -9,6 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * 
+ * @author anuj.kumar2
+ *
+ */
 @Entity
 @Table(name = "test_table")
 public class TestTable implements Serializable {

@@ -23,6 +23,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
 import com.fasterxml.jackson.module.jaxb.JaxbAnnotationIntrospector;
 
+/**
+ * 
+ * @author anuj.kumar2
+ *
+ */
 @Configuration("webAppConfig")
 public class WebAppConfig extends WebMvcConfigurationSupport {
 

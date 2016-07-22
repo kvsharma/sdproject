@@ -10,16 +10,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.orm.jpa.vendor.HibernateJpaDialect;
 import org.springframework.transaction.TransactionDefinition;
+
+/**
+ * 
+ * @author anuj.kumar2
+ *
+ */
 /**
 * Hibernate JPA adapter that adds supports for setting a non-default transaction isolation level.
-*
-* <p>
-* The JPA specification, which is database technology agnostic, does not define a way to set SQL database isolation levels.
-* This fixes the "Standard JPA does not support custom isolation levels - use a special JpaDialect" Spring exception
-* that will otherwise occur.
-*
-* @see <a href="https://jira.springsource.org/browse/SPR-3812">SPR-3812</a>
-* @see <a href="http://stackoverflow.com/questions/5234240/hibernatespringjpaisolation-does-not-work">Question on stackoverflow.com</a>
 */
 @SuppressWarnings("serial")
 public class HibernateIsolationJpaDialect extends HibernateJpaDialect {

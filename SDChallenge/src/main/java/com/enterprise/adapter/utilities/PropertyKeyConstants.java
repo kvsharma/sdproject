@@ -1,5 +1,10 @@
 package com.enterprise.adapter.utilities;
 
+/**
+ * 
+ * @author anuj.kumar2
+ *
+ */
 public enum PropertyKeyConstants {
 
 	PROPERTY_NAME_JDBC_DRIVER_CLASSNAME("jdbc.driver.classname"), PROPERTY_NAME_JDBC_URL(
