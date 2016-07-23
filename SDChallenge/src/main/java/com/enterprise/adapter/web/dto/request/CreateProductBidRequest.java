@@ -10,11 +10,20 @@ import java.time.LocalDateTime;
  *
  */
 public class CreateProductBidRequest {
+	private Long productId;
 	private LocalDateTime bidStartTime;
 	private LocalDateTime bidStopTime;
 	private Long winnerUserId;
 	private Long minPrice;
 	private Long numBidders;
+
+	public Long getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Long productId) {
+		this.productId = productId;
+	}
 
 	public LocalDateTime getBidStartTime() {
 		return bidStartTime;
@@ -58,10 +67,10 @@ public class CreateProductBidRequest {
 
 	@Override
 	public String toString() {
-		return "CreateProductBidRequest [bidStartTime=" + bidStartTime
-				+ ", bidStopTime=" + bidStopTime + ", winnerUserId="
-				+ winnerUserId + ", minPrice=" + minPrice + ", numBidders="
-				+ numBidders + "]";
+		return "CreateProductBidRequest [productId=" + productId
+				+ ", bidStartTime=" + bidStartTime + ", bidStopTime="
+				+ bidStopTime + ", winnerUserId=" + winnerUserId
+				+ ", minPrice=" + minPrice + ", numBidders=" + numBidders + "]";
 	}
 
 }
