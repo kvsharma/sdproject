@@ -3,6 +3,7 @@
  */
 package com.enterprise.adapter.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import com.enterprise.adapter.domain.ProductBids;
@@ -21,5 +22,7 @@ public interface ProductBidTableService {
 	void udpateRow(ProductBids user);
 
 	void deleteRow(ProductBids user);
+	
+	List<ProductBids> findExpiredBides(LocalDateTime now);
 
 }

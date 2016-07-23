@@ -19,5 +19,9 @@ public class ControllerURL {
 	public static final String GET_BID_BY_PRODUCT_URL = "getBidByProduct";
 
 	public static final String GET_WINNER_BY_PRODUCT_BID_URL = "getBidWinner";
+	public static final String GET_WINNER = "getBid";
+
+	public static final String RESULT = "result";
+	public static final String GET_RESULT = "get";
 
 }

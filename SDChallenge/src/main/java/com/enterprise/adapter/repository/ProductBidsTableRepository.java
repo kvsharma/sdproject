@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.enterprise.adapter.domain.Bidders;
 import com.enterprise.adapter.domain.ProductBids;
 
 @Repository
@@ -24,4 +23,7 @@ public interface ProductBidsTableRepository extends
 	@Query("Select * from Product_Bids  where bidStartTime<(:currentTime) and bidStopTime>(:currentTime) ")
 	List<ProductBids> findAllLiveBids(
 			@Param("currentTime") LocalDateTime currentTime);
+
+	@Query("Select productbids from ProductBids productbids where productbids.bidStopTime < (:now)")
+	List<ProductBids> findExpiredBides(LocalDateTime now);
 }
