@@ -29,6 +29,7 @@ import com.enterprise.adapter.web.dto.response.GetAllProductsResponse;
 import com.enterprise.adapter.web.dto.response.GetProductBidsByProductResponse;
 import com.enterprise.adapter.web.dto.response.ResponseDTO;
 import com.enterprise.adapter.web.dto.response.ResponseHeaderDto;
+import com.enterprise.adapter.webservices.utilities.ApplicationResponseCodes;
 
 /**
  * 
@@ -64,10 +65,13 @@ public class AuctionController {
 		Products products = new Products();
 		products.setName(request.getName());
 		products.setOwnerId(id);
+		products.setImgURL("");
+		products.setSold(false);
 		Products p = productTableService.addNewRow(products);
 		createProductResponse.setProduct(p);
 		logger.info("new product added: " + p);
 
+		header.setResponseCode(ApplicationResponseCodes.SUCCESS.getErrorCode());
 		response.setHeaders(header);
 		response.setBody(createProductResponse);
 		logger.info("Response: " + response);

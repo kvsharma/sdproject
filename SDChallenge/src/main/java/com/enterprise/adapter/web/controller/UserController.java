@@ -105,6 +105,8 @@ public class UserController {
 		} else {
 			String tokenId = sessionService.setSession(servletRequest.getSession().getId(), users);
 			userResponse.setTokenId(tokenId);
+			header.setResponseCode(ApplicationResponseCodes.SUCCESS.getErrorCode());
+			header.setResponseMessage("Successfully login");
 		}
 		userResponse.setEmail(request.getEmail());
 		response.setHeaders(header);
