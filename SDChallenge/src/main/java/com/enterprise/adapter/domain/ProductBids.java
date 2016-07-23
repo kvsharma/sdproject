@@ -24,6 +24,8 @@ public class ProductBids {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	@Column(name = "productId", nullable = false)
+	private Long productId;
 	@Column(name = "bidStartTime", nullable = false)
 	private LocalDateTime bidStartTime;
 	@Column(name = "bidStopTime", nullable = false)
@@ -41,6 +43,14 @@ public class ProductBids {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Long getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Long productId) {
+		this.productId = productId;
 	}
 
 	public LocalDateTime getBidStartTime() {
@@ -85,10 +95,10 @@ public class ProductBids {
 
 	@Override
 	public String toString() {
-		return "ProductBids [id=" + id + ", bidStartTime=" + bidStartTime
-				+ ", bidStopTime=" + bidStopTime + ", winnerUserId="
-				+ winnerUserId + ", minPrice=" + minPrice + ", numBidders="
-				+ numBidders + "]";
+		return "ProductBids [id=" + id + ", productId=" + productId
+				+ ", bidStartTime=" + bidStartTime + ", bidStopTime="
+				+ bidStopTime + ", winnerUserId=" + winnerUserId
+				+ ", minPrice=" + minPrice + ", numBidders=" + numBidders + "]";
 	}
 
 }
