@@ -44,8 +44,6 @@ public class UserController {
 	@Autowired
 	private Environment environment;
 	@Autowired
-	private TestTableService tableService;
-	@Autowired
 	private UserTableService userTableService;
 	@Autowired
 	private SessionService sessionService;
@@ -55,31 +53,6 @@ public class UserController {
 		logger.info("Start SD Challenge");
 	}
 
-	@RequestMapping(value = ControllerURL.test, method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> sdcTest(@RequestBody Request request,
-			HttpServletRequest servletRequest) throws Exception {
-		logger.info("Request Object:\n" + request);
-		Response response = new Response();
-		response.setName(request.getName());
-
-		TestTable table = tableService.findByName(request.getName());
-
-		if (table == null) {
-			table = new TestTable();
-			table.setName(request.getName());
-			table.setSalary(request.getSalary());
-			tableService.addNewRow(table);
-			response.setMessage(environment.getProperty("ADD_MSG"));
-		} else {
-			table.setName(request.getName());
-			table.setSalary(request.getSalary());
-			tableService.udpateRow(table);
-			response.setMessage(environment.getProperty("UPDATE_MSG"));
-		}
-
-		logger.info("Response: " + response);
-		return new ResponseEntity<>(response, HttpStatus.OK);
-	}
 
 	@RequestMapping(value = ControllerURL.CREATE, method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> createUser(@RequestBody CreateUserRequest request, HttpServletRequest servletRequest)

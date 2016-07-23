@@ -22,7 +22,7 @@
 	<mvc:interceptors>
 		<bean
 			class="com.enterprise.adapter.web.config.EnterpriseInterceptor">
-			<property name="logoutURl" value="/v1/member/logout">
+			<property name="logoutURl" value="/user/logout">
 			</property>
 		</bean>
 	</mvc:interceptors>

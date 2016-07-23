@@ -17,10 +17,10 @@ import com.enterprise.adapter.service.UserTableService;
  *
  */
 @Service
-public class UsersTableServiceImpl implements UserTableService {
+public class UserstableServiceImpl implements UserTableService {
 
 	private static final Logger logger = LoggerFactory
-			.getLogger(UsersTableServiceImpl.class);
+			.getLogger(UserstableServiceImpl.class);
 
 	@Autowired
 	private UserTableRepository userTableRepository;

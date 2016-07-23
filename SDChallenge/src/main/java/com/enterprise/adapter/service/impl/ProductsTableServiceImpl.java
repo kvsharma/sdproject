@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.enterprise.adapter.domain.Products;
-import com.enterprise.adapter.repository.ProductBidsTableRepository;
 import com.enterprise.adapter.repository.ProductTableRepository;
 import com.enterprise.adapter.service.ProductTableService;
 
