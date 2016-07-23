@@ -17,20 +17,66 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "products")
+@Table(name = "bidders")
 public class Bidders {
+	private static final long serialVersionUID = -3028114538116703624L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@Column(name = "bidderUserId", nullable = false)
 	private Long bidderUserId;
-	@Column(name = "bidStartTime", nullable = false, unique = true)
-	private LocalDateTime bidStartTime;
-	@Column(name = "bidStopTime", nullable = false, unique = true)
-	private LocalDateTime bidStopTime;
-	@Column(name = "minPrice", nullable = false)
-	private Long minPrice;
-	@Column(name = "numBidders", nullable = false)
-	private Long numBidders;
+	@Column(name = "productBidId", nullable = false, unique = true)
+	private Long productBidId;
+	@Column(name = "amount", nullable = false, unique = true)
+	private Long amount;
+	@Column(name = "bidTime", nullable = false)
+	private LocalDateTime bidTime;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getBidderUserId() {
+		return bidderUserId;
+	}
+
+	public void setBidderUserId(Long bidderUserId) {
+		this.bidderUserId = bidderUserId;
+	}
+
+	public Long getProductBidId() {
+		return productBidId;
+	}
+
+	public void setProductBidId(Long productBidId) {
+		this.productBidId = productBidId;
+	}
+
+	public Long getAmount() {
+		return amount;
+	}
+
+	public void setAmount(Long amount) {
+		this.amount = amount;
+	}
+
+	public LocalDateTime getBidTime() {
+		return bidTime;
+	}
+
+	public void setBidTime(LocalDateTime bidTime) {
+		this.bidTime = bidTime;
+	}
+
+	@Override
+	public String toString() {
+		return "Bidders [id=" + id + ", bidderUserId=" + bidderUserId
+				+ ", productBidId=" + productBidId + ", amount=" + amount
+				+ ", bidTime=" + bidTime + "]";
+	}
 
 }

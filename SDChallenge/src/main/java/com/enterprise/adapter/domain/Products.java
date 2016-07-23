@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "products")
 public class Products {
-	private static final long serialVersionUID = -3028114538116703620L;
+	private static final long serialVersionUID = -3028114538116703622L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
