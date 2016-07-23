@@ -5,7 +5,12 @@ package com.enterprise.adapter.service.impl;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.enterprise.adapter.domain.Bidders;
+import com.enterprise.adapter.repository.BiddersTableRepository;
 import com.enterprise.adapter.service.BidderTableService;
 
 /**
@@ -14,28 +19,31 @@ import com.enterprise.adapter.service.BidderTableService;
  */
 public class BiddersTableServiceImpl implements BidderTableService {
 
+	private static final Logger logger = LoggerFactory
+			.getLogger(BiddersTableServiceImpl.class);
+
+	@Autowired
+	private BiddersTableRepository biddersTableRepository;
+
 	@Override
-	public Bidders addNewRow(Bidders user) {
-		// TODO Auto-generated method stub
-		return null;
+	public Bidders addNewRow(Bidders bidder) {
+		return biddersTableRepository.save(bidder);
 	}
 
 	@Override
 	public List<Bidders> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return biddersTableRepository.findAll();
 	}
 
 	@Override
-	public void udpateRow(Bidders user) {
-		// TODO Auto-generated method stub
-		
+	public void udpateRow(Bidders bidder) {
+		biddersTableRepository.save(bidder);
 	}
 
 	@Override
-	public void deleteRow(Bidders user) {
-		// TODO Auto-generated method stub
-		
+	public void deleteRow(Bidders bidder) {
+		biddersTableRepository.delete(bidder);
+
 	}
 
 }

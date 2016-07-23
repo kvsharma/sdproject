@@ -5,15 +5,15 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.enterprise.adapter.domain.ProductBids;
+import com.enterprise.adapter.domain.Products;
 
 @Repository
 public interface ProductTableRepository extends
-		JpaRepository<ProductBids, Integer> {
+		JpaRepository<Products, Integer> {
 
-	ProductBids findById(Long id);
+	Products findById(Long id);
 
-	ProductBids findByProductId(Long id);
+	Products findByProductId(Long id);
 
-	List<ProductBids> findAll();
+	List<Products> findAll();
 }
