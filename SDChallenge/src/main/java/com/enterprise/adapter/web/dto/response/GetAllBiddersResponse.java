@@ -26,6 +26,4 @@ public class GetAllBiddersResponse {
 	public String toString() {
 		return "GetAllBiddersResponse [bidders=" + bidders + "]";
 	}
-
-	
 }

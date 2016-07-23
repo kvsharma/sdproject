@@ -3,13 +3,13 @@
  */
 package com.enterprise.adapter.service.impl;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.enterprise.adapter.domain.Bidders;
 import com.enterprise.adapter.domain.ProductBids;
 import com.enterprise.adapter.repository.ProductBidsTableRepository;
 import com.enterprise.adapter.service.ProductBidTableService;
@@ -20,8 +20,7 @@ import com.enterprise.adapter.service.ProductBidTableService;
  */
 public class ProductBidsTableServiceImpl implements ProductBidTableService {
 
-	private static final Logger logger = LoggerFactory
-			.getLogger(ProductBidsTableServiceImpl.class);
+	private static final Logger logger = LoggerFactory.getLogger(ProductBidsTableServiceImpl.class);
 
 	@Autowired
 	private ProductBidsTableRepository productBidsTableRepository;
@@ -50,6 +49,11 @@ public class ProductBidsTableServiceImpl implements ProductBidTableService {
 	@Override
 	public List<ProductBids> findByProductId(Long productId) {
 		return productBidsTableRepository.findByProductId(productId);
+	}
+
+	@Override
+	public List<ProductBids> findExpiredBides(LocalDateTime now) {
+		return productBidsTableRepository.findExpiredBides(now);
 	}
 
 }

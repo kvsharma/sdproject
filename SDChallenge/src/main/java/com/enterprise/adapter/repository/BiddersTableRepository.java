@@ -21,11 +21,9 @@ public interface BiddersTableRepository extends JpaRepository<Bidders, Integer> 
 
 	List<Bidders> findAll();
 
-	@Query("Select bidders.id from Bidders bidders, Product_Bids productBids "
-			+ "where bidders.productBidId = productBids.id"
-			+ " and productBids.bidStartTime<(:currentTime)"
-			+ " and productBids.bidStopTime>(:currentTime)  ")
-	List<Bidders> getIntermediateWinners(
-			@Param("currentTime") LocalDateTime currentTime);
+	@Query("Select bidders.id as bidderId, max(bidders.amount) from Bidders bidders, Product_Bids productBids "
+			+ "where bidders.productBidId = productBids.id" + " and productBids.bidStartTime<(:currentTime)"
+			+ " and productBids.bidStopTime>(:currentTime)  group by bidderId")
+	List<Bidders> getIntermediateWinners(@Param("currentTime") LocalDateTime currentTime);
 
 }

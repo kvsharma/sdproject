@@ -17,7 +17,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "product_bids")
+@Table(name = "productbids")
 public class ProductBids {
 	private static final long serialVersionUID = -3028114538116703623L;
 
