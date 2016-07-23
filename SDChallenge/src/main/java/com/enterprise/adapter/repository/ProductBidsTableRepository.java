@@ -20,10 +20,10 @@ public interface ProductBidsTableRepository extends
 
 	List<ProductBids> findAll();
 
-	@Query("Select * from Product_Bids  where bidStartTime<(:currentTime) and bidStopTime>(:currentTime) ")
-	List<ProductBids> findAllLiveBids(
-			@Param("currentTime") LocalDateTime currentTime);
-
-	@Query("Select productbids from ProductBids productbids where productbids.bidStopTime < (:now)")
-	List<ProductBids> findExpiredBides(LocalDateTime now);
+	// @Query("Select * from Product_Bids  where bidStartTime<(:currentTime) and bidStopTime>(:currentTime) ")
+	// List<ProductBids> findAllLiveBids(
+	// @Param("currentTime") LocalDateTime currentTime);
+	//
+	// @Query("Select productbids from ProductBids productbids where productbids.bidStopTime < (:now)")
+	// List<ProductBids> findExpiredBides(LocalDateTime now);
 }
