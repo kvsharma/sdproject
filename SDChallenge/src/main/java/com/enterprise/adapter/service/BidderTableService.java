@@ -20,6 +20,8 @@ public interface BidderTableService {
 
 	List<Bidders> findByProductId(Long productId);
 
+	List<Bidders> getIntermediateWinners();
+
 	void udpateRow(Bidders user);
 
 	void deleteRow(Bidders user);

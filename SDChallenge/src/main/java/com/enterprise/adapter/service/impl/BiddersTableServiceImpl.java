@@ -3,6 +3,7 @@
  */
 package com.enterprise.adapter.service.impl;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -56,4 +57,9 @@ public class BiddersTableServiceImpl implements BidderTableService {
 		return biddersTableRepository.findByProductId(productId);
 	}
 
+	@Override
+	public List<Bidders> getIntermediateWinners() {
+		LocalDateTime currentTime = LocalDateTime.now();
+		return biddersTableRepository.getIntermediateWinners(currentTime);
+	}
 }

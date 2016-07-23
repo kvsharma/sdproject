@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.enterprise.adapter.domain.Bidders;
 import com.enterprise.adapter.domain.ProductBids;
 import com.enterprise.adapter.repository.ProductBidsTableRepository;
 import com.enterprise.adapter.service.ProductBidTableService;
@@ -50,4 +51,5 @@ public class ProductBidsTableServiceImpl implements ProductBidTableService {
 	public List<ProductBids> findByProductId(Long productId) {
 		return productBidsTableRepository.findByProductId(productId);
 	}
+
 }
