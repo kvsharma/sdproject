@@ -1,47 +1,18 @@
-/**
- * 
- */
-package com.enterprise.adapter.domain;
+package com.enterprise.adapter.web.dto.response;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 /**
- * @author karmveer.sharma
+ * 
+ * @author anuj.kumar2
  *
  */
-@Entity
-@Table(name = "product_bids")
-public class ProductBids {
-	private static final long serialVersionUID = -3028114538116703623L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	@Column(name = "bidStartTime", nullable = false)
+public class CreateProductBidResponse {
 	private LocalDateTime bidStartTime;
-	@Column(name = "bidStopTime", nullable = false)
 	private LocalDateTime bidStopTime;
-	@Column(name = "winnerUserId", nullable = false)
 	private Long winnerUserId;
-	@Column(name = "minPrice", nullable = false)
 	private Long minPrice;
-	@Column(name = "numBidders", nullable = false)
 	private Long numBidders;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public LocalDateTime getBidStartTime() {
 		return bidStartTime;
@@ -85,7 +56,7 @@ public class ProductBids {
 
 	@Override
 	public String toString() {
-		return "ProductBids [id=" + id + ", bidStartTime=" + bidStartTime
+		return "CreateProductBidRequest [bidStartTime=" + bidStartTime
 				+ ", bidStopTime=" + bidStopTime + ", winnerUserId="
 				+ winnerUserId + ", minPrice=" + minPrice + ", numBidders="
 				+ numBidders + "]";

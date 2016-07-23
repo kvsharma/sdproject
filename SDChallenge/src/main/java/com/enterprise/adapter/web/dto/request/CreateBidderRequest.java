@@ -1,44 +1,19 @@
 /**
  * 
  */
-package com.enterprise.adapter.domain;
+package com.enterprise.adapter.web.dto.request;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 /**
- * @author karmveer.sharma
+ * @author anuj.kumar2
  *
  */
-@Entity
-@Table(name = "bidders")
-public class Bidders {
-	private static final long serialVersionUID = -3028114538116703624L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	@Column(name = "bidderUserId", nullable = false)
+public class CreateBidderRequest {
 	private Long bidderUserId;
-	@Column(name = "productBidId", nullable = false)
 	private Long productBidId;
-	@Column(name = "amount", nullable = false)
 	private Long amount;
-	@Column(name = "bidTime", nullable = false)
 	private LocalDateTime bidTime;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public Long getBidderUserId() {
 		return bidderUserId;
@@ -74,7 +49,7 @@ public class Bidders {
 
 	@Override
 	public String toString() {
-		return "Bidders [id=" + id + ", bidderUserId=" + bidderUserId
+		return "CreateBidderRequest [bidderUserId=" + bidderUserId
 				+ ", productBidId=" + productBidId + ", amount=" + amount
 				+ ", bidTime=" + bidTime + "]";
 	}

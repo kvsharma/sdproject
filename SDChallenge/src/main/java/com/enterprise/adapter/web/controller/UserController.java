@@ -35,7 +35,8 @@ import com.enterprise.adapter.web.service.UserService;
 @RequestMapping(value = ControllerURL.DEFAULT_USER_URL)
 public class UserController {
 
-	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(UserController.class);
 
 	@Autowired
 	private Environment environment;
@@ -50,7 +51,8 @@ public class UserController {
 	}
 
 	@RequestMapping(value = ControllerURL.test, method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> sdcTest(@RequestBody Request request, HttpServletRequest servletRequest) throws Exception {
+	public ResponseEntity<?> sdcTest(@RequestBody Request request,
+			HttpServletRequest servletRequest) throws Exception {
 		logger.info("Request Object:\n" + request);
 		Response response = new Response();
 		response.setName(request.getName());
@@ -74,14 +76,18 @@ public class UserController {
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 
-
 	@RequestMapping(value = ControllerURL.CREATE, method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> createTable(@RequestBody CreateUserRequest request, HttpServletRequest servletRequest) throws Exception {
+	public ResponseEntity<?> createTable(
+			@RequestBody CreateUserRequest request,
+			HttpServletRequest servletRequest) throws Exception {
 		logger.info("Request Object:\n" + request);
-		
+
 		ResponseDTO<CreateUserResponse> response = new ResponseDTO<CreateUserResponse>();
 		ResponseHeaderDto header = new ResponseHeaderDto();
 		CreateUserResponse userResponse = new CreateUserResponse();
+		/* TODO */
+		response.setHeaders(header);
+		response.setBody(userResponse);
 
 		logger.info("Response: " + response);
 		return new ResponseEntity<>(response, HttpStatus.OK);

@@ -22,16 +22,14 @@ public class Products {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Column(name = "name", nullable = false, unique = true)
+	@Column(name = "name", nullable = false)
 	private String name;
-	@Column(name = "imgURL", nullable = false, unique = true)
+	@Column(name = "imgURL", nullable = false)
 	private String imgURL;
-	@Column(name = "desc", nullable = false, unique = true)
-	private String desc;
 	@Column(name = "ownerId", nullable = false)
 	private Long ownerId;
-	@Column(name = "status", nullable = false)
-	private boolean status;
+	@Column(name = "isSold", nullable = false)
+	private boolean isSold;
 
 	public Long getId() {
 		return id;
@@ -57,14 +55,6 @@ public class Products {
 		this.imgURL = imgURL;
 	}
 
-	public String getDesc() {
-		return desc;
-	}
-
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
-
 	public long getOwnerId() {
 		return ownerId;
 	}
@@ -73,19 +63,9 @@ public class Products {
 		this.ownerId = ownerId;
 	}
 
-	public boolean isStatus() {
-		return status;
-	}
-
-	public void setStatus(boolean status) {
-		this.status = status;
-	}
-
 	@Override
 	public String toString() {
-		return "Products [id=" + id + ", name=" + name + ", imgURL=" + imgURL
-				+ ", desc=" + desc + ", ownerId=" + ownerId + ", status="
-				+ status + "]";
+		return "Products [isSold=" + isSold + "]";
 	}
 
 }
