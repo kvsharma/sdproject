@@ -67,21 +67,22 @@ public class BiddersTableServiceImpl implements BidderTableService {
 
 	@Override
 	public List<Bidders> getIntermediateWinners() {
-		LocalDateTime currentTime = LocalDateTime.now();
-		List<ProductBids> liveBids = productBidsTableRepository
-				.findAllLiveBids(currentTime);
-		List<Bidders> winners = new ArrayList<Bidders>();
-		for (ProductBids productBid : liveBids) {
-			List<Bidders> bidders = biddersTableRepository
-					.findByProductBidId(productBid.getId());
-			Bidders currentWinner = new Bidders();
-			for (Bidders bidder : bidders) {
-				if (currentWinner.getAmount() < bidder.getAmount()) {
-					currentWinner = bidder;
-				}
-			}
-			winners.add(currentWinner);
-		}
-		return winners;
+		// LocalDateTime currentTime = LocalDateTime.now();
+		// List<ProductBids> liveBids = productBidsTableRepository
+		// .findAllLiveBids(currentTime);
+		// List<Bidders> winners = new ArrayList<Bidders>();
+		// for (ProductBids productBid : liveBids) {
+		// List<Bidders> bidders = biddersTableRepository
+		// .findByProductBidId(productBid.getId());
+		// Bidders currentWinner = new Bidders();
+		// for (Bidders bidder : bidders) {
+		// if (currentWinner.getAmount() < bidder.getAmount()) {
+		// currentWinner = bidder;
+		// }
+		// }
+		// winners.add(currentWinner);
+		// }
+		// return winners;
+		return null;
 	}
 }
