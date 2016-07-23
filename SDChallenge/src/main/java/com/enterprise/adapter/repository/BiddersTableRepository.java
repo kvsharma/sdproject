@@ -17,7 +17,7 @@ public interface BiddersTableRepository extends JpaRepository<Bidders, Integer> 
 
 	List<Bidders> findByBidderUserId(Long id);
 
-	List<Bidders> findByProductId(Long id);
+	List<Bidders> findByProductBidId(Long id);
 
 	List<Bidders> findAll();
 

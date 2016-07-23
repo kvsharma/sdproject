@@ -117,4 +117,19 @@ public class AuctionController {
 		logger.info("Response: " + response);
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
+
+	@RequestMapping(value = ControllerURL.GET_WINNER_BY_PRODUCT_BID_URL, method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> getBidWinnerByProduct(
+			@RequestBody GetProductBidsByProductRequest request,
+			HttpServletRequest servletRequest) throws Exception {
+		logger.info("Request Object:\n" + request);
+		ResponseDTO<GetProductBidsByProductResponse> response = new ResponseDTO<GetProductBidsByProductResponse>();
+		ResponseHeaderDto header = new ResponseHeaderDto();
+		GetProductBidsByProductResponse productBidResponse = new GetProductBidsByProductResponse();
+
+		response.setHeaders(header);
+		response.setBody(productBidResponse);
+		logger.info("Response: " + response);
+		return new ResponseEntity<>(response, HttpStatus.OK);
+	}
 }
