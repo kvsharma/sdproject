@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head ng-app="auction">
+	<meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+
+	<title>Auction Portal</title>
+
+	<!-- Material Design CSS Files -->
+	<link rel="stylesheet" type="text/css" href="assets/styles/bootstrap/bootstrap.css">
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Acme Auction Inc</a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#/auction">Auction</a></li>
+                    <li><a href="#">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+	</header>
+	<main>
+		<div class="container">
+			<div ng-view></div>
+		</div>
+	</main>
+
+	<!-- Angular JS Files -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <!-- Application JS Files -->
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="services/ajaxService.js"></script>
+</body>
+</html>
