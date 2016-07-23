@@ -8,6 +8,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.enterprise.adapter.domain.Products;
 import com.enterprise.adapter.repository.ProductTableRepository;
@@ -17,6 +18,7 @@ import com.enterprise.adapter.service.ProductTableService;
  * @author karmveer.sharma
  *
  */
+@Service
 public class ProductsTableServiceImpl implements ProductTableService {
 
 	private static final Logger logger = LoggerFactory
