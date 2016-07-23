@@ -1,4 +1,4 @@
-package com.enterprise.webservices.service.impl;
+package com.enterprise.adapter.webservices.service.impl;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -12,12 +12,21 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
 
 import com.enterprise.adapter.domain.Session;
 import com.enterprise.adapter.domain.Users;
-import com.enterprise.webservices.service.SessionService;
+import com.enterprise.adapter.webservices.service.SessionService;
 
+/**
+ * 
+ * @author anuj.kumar2
+ *
+ */
+@EnableScheduling
+@Service
 public class SessionServiceImpl implements SessionService {
 
 	private static ConcurrentHashMap<String, Session> sessionMap = new ConcurrentHashMap<String, Session>();
@@ -98,7 +107,7 @@ public class SessionServiceImpl implements SessionService {
 	}
 
 	@Override
-	public String setSession(String sessionId, Users user, String IPAddress) {
+	public String setSession(String sessionId, Users user) {
 
 		String token = "";
 		if (userMap.containsKey(user.getId().toString())) {

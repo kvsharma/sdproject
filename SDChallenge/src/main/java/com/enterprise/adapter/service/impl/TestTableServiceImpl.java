@@ -22,34 +22,34 @@ public class TestTableServiceImpl implements TestTableService {
 	private static final Logger logger = LoggerFactory
 			.getLogger(TestTableServiceImpl.class);
 	@Autowired
-	TestTableRepository processListRepository;
+	TestTableRepository repository;
 
 	@Override
 	public TestTable addNewRow(TestTable table) {
 		logger.info("Add row: " + table);
-		return processListRepository.save(table);
+		return repository.save(table);
 	}
 
 	@Override
 	public List<TestTable> findAll() {
-		return processListRepository.findAll();
+		return repository.findAll();
 	}
 
 	@Override
 	public TestTable findByName(String name) {
 		logger.info("find for name: " + name);
-		return processListRepository.findByName(name);
+		return repository.findByName(name);
 	}
 
 	@Override
 	public void udpateRow(TestTable table) {
 		logger.info("Update row: " + table);
-		processListRepository.save(table);
+		repository.save(table);
 	}
 
 	@Override
 	public void deleteRow(TestTable table) {
 		logger.info("delete row: " + table);
-		processListRepository.delete(table);
+		repository.delete(table);
 	}
 }

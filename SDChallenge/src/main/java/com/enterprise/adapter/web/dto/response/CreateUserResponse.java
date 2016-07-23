@@ -6,14 +6,15 @@ package com.enterprise.adapter.web.dto.response;
  *
  */
 public class CreateUserResponse {
-	private Long name;
+	private String name;
 	private String email;
+	private String tokenId;
 
-	public Long getName() {
+	public String getName() {
 		return name;
 	}
 
-	public void setName(Long name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -24,9 +25,19 @@ public class CreateUserResponse {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public String getTokenId() {
+		return tokenId;
+	}
+
+	public void setTokenId(String tokenId) {
+		this.tokenId = tokenId;
+	}
 
 	@Override
 	public String toString() {
-		return "CreateUserResponse [name=" + name + ", email=" + email + "]";
+		return "CreateUserResponse [name=" + name + ", email=" + email + ", tokenId=" + tokenId + "]";
 	}
+
+	
 }

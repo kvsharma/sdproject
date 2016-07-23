@@ -1,7 +1,6 @@
 package com.enterprise.adapter.web.config;
 
 import java.io.PrintWriter;
-import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,8 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.enterprise.adapter.domain.Session;
 import com.enterprise.adapter.web.dto.response.ResponseDTO;
 import com.enterprise.adapter.web.dto.response.ResponseHeaderDto;
-import com.enterprise.webservices.service.SessionService;
-import com.enterprise.webservices.utilities.ApplicationResponseCodes;
+import com.enterprise.adapter.webservices.service.SessionService;
+import com.enterprise.adapter.webservices.utilities.ApplicationResponseCodes;
 import com.google.gson.Gson;
 
 public class EnterpriseInterceptor implements HandlerInterceptor {
@@ -24,7 +23,7 @@ public class EnterpriseInterceptor implements HandlerInterceptor {
 	@Autowired
 	SessionService service;
 
-	public Set<String> byPassURL;
+	// public Set<String> byPassURL;
 	public String logoutURl;
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(EnterpriseInterceptor.class);
@@ -43,11 +42,10 @@ public class EnterpriseInterceptor implements HandlerInterceptor {
 
 		LOGGER.info("REQUEST URL: " + requestType + " FROM IP :" + remoteAddress);
 
-		if (byPassURL.contains(requestType) || requestType.contains("/v1/support/viewattachment/")
-				|| requestType.contains("/user/create")) {
+		if (requestType.contains("/user/create") ||requestType.contains("/user/login") ) {
 			return true;
 		} else {
-			String token = request.getHeader("memberSessionId");
+			String token = request.getHeader("tokenId");
 			if (requestType.equalsIgnoreCase(logoutURl)) {
 				LOGGER.info("LOGOUT REQUEST FOR TOKEN :" + token);
 				service.removeSession(token, remoteAddress);
@@ -85,14 +83,6 @@ public class EnterpriseInterceptor implements HandlerInterceptor {
 	public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, ModelAndView arg3)
 			throws Exception {
 
-	}
-
-	public Set<String> getByPassURL() {
-		return byPassURL;
-	}
-
-	public void setByPassURL(Set<String> byPassURL) {
-		this.byPassURL = byPassURL;
 	}
 
 	public String getLogoutURl() {

@@ -18,4 +18,13 @@
 	<mvc:resources mapping="/resources/*" location="/resources/" />
 	<mvc:annotation-driven />
 	<task:annotation-driven />
+
+	<mvc:interceptors>
+		<bean
+			class="com.enterprise.adapter.web.config.EnterpriseInterceptor">
+			<property name="logoutURl" value="/v1/member/logout">
+			</property>
+		</bean>
+	</mvc:interceptors>
+
 </beans>

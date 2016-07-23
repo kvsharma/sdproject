@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.enterprise.adapter.domain.TestTable;
+import com.enterprise.adapter.domain.Users;
 import com.enterprise.adapter.service.TestTableService;
+import com.enterprise.adapter.service.UserTableService;
 import com.enterprise.adapter.web.controller.contants.ControllerURL;
 import com.enterprise.adapter.web.dto.request.CreateUserRequest;
 import com.enterprise.adapter.web.dto.request.Request;
@@ -24,7 +26,8 @@ import com.enterprise.adapter.web.dto.response.CreateUserResponse;
 import com.enterprise.adapter.web.dto.response.Response;
 import com.enterprise.adapter.web.dto.response.ResponseDTO;
 import com.enterprise.adapter.web.dto.response.ResponseHeaderDto;
-import com.enterprise.adapter.web.service.UserService;
+import com.enterprise.adapter.webservices.service.SessionService;
+import com.enterprise.adapter.webservices.utilities.ApplicationResponseCodes;
 
 /**
  * 
@@ -42,7 +45,9 @@ public class UserController {
 	@Autowired
 	private TestTableService tableService;
 	@Autowired
-	private UserService userService;
+	private UserTableService userTableService;
+	@Autowired
+	private SessionService sessionService;
 
 	@PostConstruct
 	public void init() {
@@ -74,15 +79,58 @@ public class UserController {
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 
-
 	@RequestMapping(value = ControllerURL.CREATE, method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> createTable(@RequestBody CreateUserRequest request, HttpServletRequest servletRequest) throws Exception {
+	public ResponseEntity<?> createUser(@RequestBody CreateUserRequest request, HttpServletRequest servletRequest)
+			throws Exception {
 		logger.info("Request Object:\n" + request);
-		
+
 		ResponseDTO<CreateUserResponse> response = new ResponseDTO<CreateUserResponse>();
 		ResponseHeaderDto header = new ResponseHeaderDto();
 		CreateUserResponse userResponse = new CreateUserResponse();
 
+		Users users = userTableService.findByEmail(request.getEmail());
+		if (users != null) {
+			header.setResponseCode(ApplicationResponseCodes.USER_ALREADY_EXIST.getErrorCode());
+			header.setResponseMessage("User email already exist");
+		} else {
+			users = new Users();
+			users.setEmail(request.getEmail());
+			users.setName(request.getName());
+			users.setPhone(request.getPhone());
+			userTableService.addNewRow(users);
+			header.setResponseCode(ApplicationResponseCodes.SUCCESS.getErrorCode());
+			header.setResponseMessage("success");
+
+		}
+		userResponse.setEmail(request.getEmail());
+		userResponse.setName(request.getName());
+
+		response.setHeaders(header);
+		response.setBody(userResponse);
+		logger.info("Response: " + response);
+		return new ResponseEntity<>(response, HttpStatus.OK);
+	}
+
+	@RequestMapping(value = ControllerURL.LOGIN, method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> login(@RequestBody CreateUserRequest request, HttpServletRequest servletRequest)
+			throws Exception {
+		logger.info("Request Object:\n" + request);
+
+		ResponseDTO<CreateUserResponse> response = new ResponseDTO<CreateUserResponse>();
+		ResponseHeaderDto header = new ResponseHeaderDto();
+		CreateUserResponse userResponse = new CreateUserResponse();
+
+		Users users = userTableService.findByEmailAndPhone(request.getEmail(), request.getPhone());
+		if (users == null) {
+			header.setResponseCode(ApplicationResponseCodes.INVALID_CREDENTIALS.getErrorCode());
+			header.setResponseMessage("Invalid email or phone");
+		} else {
+			String tokenId = sessionService.setSession(servletRequest.getSession().getId(), users);
+			userResponse.setTokenId(tokenId);
+		}
+		userResponse.setEmail(request.getEmail());
+		response.setHeaders(header);
+		response.setBody(userResponse);
 		logger.info("Response: " + response);
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}

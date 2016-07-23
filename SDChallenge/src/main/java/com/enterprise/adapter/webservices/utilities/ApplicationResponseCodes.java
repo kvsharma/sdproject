@@ -1,4 +1,4 @@
-package com.enterprise.webservices.utilities;
+package com.enterprise.adapter.webservices.utilities;
 
 public enum ApplicationResponseCodes {
 
@@ -7,6 +7,7 @@ public enum ApplicationResponseCodes {
 	INVALID_CREDENTIALS("201"), 
 	VALIDATION_FAILED("202"),  
 	INVALID_MOBILE_NUMBER("203"),
+	USER_ALREADY_EXIST("204"),
 	
 	SESSION_FAILURE_SESSION_EXPIRED("251"),
 	
