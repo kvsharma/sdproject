@@ -22,9 +22,11 @@ import com.enterprise.adapter.utilities.RequestValidator;
 import com.enterprise.adapter.web.controller.contants.ControllerURL;
 import com.enterprise.adapter.web.dto.request.CreateProductBidRequest;
 import com.enterprise.adapter.web.dto.request.CreateProductRequest;
+import com.enterprise.adapter.web.dto.request.GetProductBidsByProductRequest;
 import com.enterprise.adapter.web.dto.response.CreateProductBidResponse;
 import com.enterprise.adapter.web.dto.response.CreateProductResponse;
 import com.enterprise.adapter.web.dto.response.GetAllProductsResponse;
+import com.enterprise.adapter.web.dto.response.GetProductBidsByProductResponse;
 import com.enterprise.adapter.web.dto.response.ResponseDTO;
 import com.enterprise.adapter.web.dto.response.ResponseHeaderDto;
 
@@ -36,7 +38,8 @@ import com.enterprise.adapter.web.dto.response.ResponseHeaderDto;
 @Controller
 @RequestMapping(value = ControllerURL.DEFAULT_AUCTION_URL)
 public class AuctionController {
-	private static final Logger logger = LoggerFactory.getLogger(AuctionController.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(AuctionController.class);
 
 	@Autowired
 	private UserTableService userTableService;
@@ -46,8 +49,10 @@ public class AuctionController {
 	private ProductTableService productTableService;
 
 	@RequestMapping(value = ControllerURL.CREATE_PRODUCT_URL, method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> createProduct(@RequestBody CreateProductRequest request, @RequestHeader String email,
-			HttpServletRequest servletRequest) throws Exception {
+	public ResponseEntity<?> createProduct(
+			@RequestBody CreateProductRequest request,
+			@RequestHeader String email, HttpServletRequest servletRequest)
+			throws Exception {
 		logger.info("Request Object:\n" + request);
 		ResponseDTO<CreateProductResponse> response = new ResponseDTO<CreateProductResponse>();
 		ResponseHeaderDto header = new ResponseHeaderDto();
@@ -70,7 +75,8 @@ public class AuctionController {
 	}
 
 	@RequestMapping(value = ControllerURL.GET_ALL_PRODUCT_URL, method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> getAllProduct(HttpServletRequest servletRequest) throws Exception {
+	public ResponseEntity<?> getAllProduct(HttpServletRequest servletRequest)
+			throws Exception {
 		logger.info("get all product request");
 		ResponseDTO<GetAllProductsResponse> response = new ResponseDTO<GetAllProductsResponse>();
 		ResponseHeaderDto header = new ResponseHeaderDto();
@@ -83,8 +89,9 @@ public class AuctionController {
 	}
 
 	@RequestMapping(value = ControllerURL.CREATE_BID_URL, method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> createBid(@RequestBody CreateProductBidRequest request, HttpServletRequest servletRequest)
-			throws Exception {
+	public ResponseEntity<?> createBid(
+			@RequestBody CreateProductBidRequest request,
+			HttpServletRequest servletRequest) throws Exception {
 		logger.info("Request Object:\n" + request);
 		ResponseDTO<CreateProductBidResponse> response = new ResponseDTO<CreateProductBidResponse>();
 		ResponseHeaderDto header = new ResponseHeaderDto();
@@ -97,12 +104,13 @@ public class AuctionController {
 	}
 
 	@RequestMapping(value = ControllerURL.GET_BID_BY_PRODUCT_URL, method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<?> getBidByProduct(@RequestBody CreateProductBidRequest request,
+	public ResponseEntity<?> getBidByProduct(
+			@RequestBody GetProductBidsByProductRequest request,
 			HttpServletRequest servletRequest) throws Exception {
 		logger.info("Request Object:\n" + request);
-		ResponseDTO<CreateProductBidResponse> response = new ResponseDTO<CreateProductBidResponse>();
+		ResponseDTO<GetProductBidsByProductResponse> response = new ResponseDTO<GetProductBidsByProductResponse>();
 		ResponseHeaderDto header = new ResponseHeaderDto();
-		CreateProductBidResponse productBidResponse = new CreateProductBidResponse();
+		GetProductBidsByProductResponse productBidResponse = new GetProductBidsByProductResponse();
 
 		response.setHeaders(header);
 		response.setBody(productBidResponse);
