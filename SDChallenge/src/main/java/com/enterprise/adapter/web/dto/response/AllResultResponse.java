@@ -8,18 +8,19 @@ import java.util.List;
  *
  */
 public class AllResultResponse {
-	private List<AllResult> liveAutions;
+	private List<AllResult> expiredBids;
 
-	public List<AllResult> getLiveAutions() {
-		return liveAutions;
+	public List<AllResult> getExpiredBids() {
+		return expiredBids;
 	}
 
-	public void setLiveAutions(List<AllResult> liveAutions) {
-		this.liveAutions = liveAutions;
+	public void setExpiredBids(List<AllResult> expiredBids) {
+		this.expiredBids = expiredBids;
 	}
 
 	@Override
 	public String toString() {
-		return "AllResultResponse [liveAutions=" + liveAutions + "]";
+		return "AllResultResponse [expiredBids=" + expiredBids + "]";
 	}
+
 }

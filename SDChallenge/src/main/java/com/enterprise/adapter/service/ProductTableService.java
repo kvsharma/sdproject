@@ -14,6 +14,8 @@ import com.enterprise.adapter.domain.Products;
 public interface ProductTableService {
 	Products addNewRow(Products user);
 
+	Products findById(Long id);
+	
 	List<Products> findAll();
 
 	void udpateRow(Products user);

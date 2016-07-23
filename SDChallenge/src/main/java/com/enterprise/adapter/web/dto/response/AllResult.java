@@ -1,5 +1,7 @@
 package com.enterprise.adapter.web.dto.response;
 
+import java.time.LocalDateTime;
+
 /**
  * 
  * @author anuj.kumar2
@@ -9,8 +11,8 @@ public class AllResult {
 
 	private long id;
 	private String productName;
-	private String startTime;
-	private String endTime;
+	private LocalDateTime startTime;
+	private LocalDateTime endTime;
 	private String winnerName;
 
 	public long getId() {
@@ -29,19 +31,19 @@ public class AllResult {
 		this.productName = productName;
 	}
 
-	public String getStartTime() {
+	public LocalDateTime getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(String startTime) {
+	public void setStartTime(LocalDateTime startTime) {
 		this.startTime = startTime;
 	}
 
-	public String getEndTime() {
+	public LocalDateTime getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(String endTime) {
+	public void setEndTime(LocalDateTime endTime) {
 		this.endTime = endTime;
 	}
 
@@ -51,11 +53,5 @@ public class AllResult {
 
 	public void setWinnerName(String winnerName) {
 		this.winnerName = winnerName;
-	}
-
-	@Override
-	public String toString() {
-		return "AllLiveAution [id=" + id + ", productName=" + productName + ", startTime=" + startTime + ", endTime="
-				+ endTime + ", winnerName=" + winnerName + "]";
 	}
 }

@@ -47,4 +47,9 @@ public class ProductsTableServiceImpl implements ProductTableService {
 
 	}
 
+	@Override
+	public Products findById(Long id) {
+		return productTableRepository.findById(id);
+	}
+
 }
