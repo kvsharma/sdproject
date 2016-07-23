@@ -55,7 +55,8 @@ public class ProductBidsTableServiceImpl implements ProductBidTableService {
 
 	@Override
 	public List<ProductBids> findExpiredBides(LocalDateTime now) {
-		return productBidsTableRepository.findExpiredBides(now);
+		//return productBidsTableRepository.findExpiredBides(now);
+		return null;
 	}
 
 }
