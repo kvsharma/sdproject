@@ -18,8 +18,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.enterprise.adapter.domain.TestTable;
 import com.enterprise.adapter.service.TestTableService;
 import com.enterprise.adapter.web.controller.contants.ControllerURL;
+import com.enterprise.adapter.web.dto.request.CreateUserRequest;
 import com.enterprise.adapter.web.dto.request.Request;
+import com.enterprise.adapter.web.dto.response.CreateUserResponse;
 import com.enterprise.adapter.web.dto.response.Response;
+import com.enterprise.adapter.web.dto.response.ResponseDTO;
+import com.enterprise.adapter.web.dto.response.ResponseHeaderDto;
+import com.enterprise.adapter.web.service.UserService;
 
 /**
  * 
@@ -27,7 +32,7 @@ import com.enterprise.adapter.web.dto.response.Response;
  *
  */
 @Controller
-@RequestMapping(value = ControllerURL.DEFAULT_URL)
+@RequestMapping(value = ControllerURL.DEFAULT_USER_URL)
 public class UserController {
 
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -36,6 +41,8 @@ public class UserController {
 	private Environment environment;
 	@Autowired
 	private TestTableService tableService;
+	@Autowired
+	private UserService userService;
 
 	@PostConstruct
 	public void init() {
@@ -66,4 +73,18 @@ public class UserController {
 		logger.info("Response: " + response);
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
+
+
+	@RequestMapping(value = ControllerURL.CREATE, method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> createTable(@RequestBody CreateUserRequest request, HttpServletRequest servletRequest) throws Exception {
+		logger.info("Request Object:\n" + request);
+		
+		ResponseDTO<CreateUserResponse> response = new ResponseDTO<CreateUserResponse>();
+		ResponseHeaderDto header = new ResponseHeaderDto();
+		CreateUserResponse userResponse = new CreateUserResponse();
+
+		logger.info("Response: " + response);
+		return new ResponseEntity<>(response, HttpStatus.OK);
+	}
+
 }
