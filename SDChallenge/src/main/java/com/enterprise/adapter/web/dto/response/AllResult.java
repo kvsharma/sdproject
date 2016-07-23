@@ -1,6 +1,6 @@
 package com.enterprise.adapter.web.dto.response;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * 
@@ -11,8 +11,8 @@ public class AllResult {
 
 	private long id;
 	private String productName;
-	private LocalDateTime startTime;
-	private LocalDateTime endTime;
+	private Date startTime;
+	private Date endTime;
 	private String winnerName;
 
 	public long getId() {
@@ -31,19 +31,19 @@ public class AllResult {
 		this.productName = productName;
 	}
 
-	public LocalDateTime getStartTime() {
+	public Date getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(LocalDateTime startTime) {
+	public void setStartTime(Date startTime) {
 		this.startTime = startTime;
 	}
 
-	public LocalDateTime getEndTime() {
+	public Date getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(LocalDateTime endTime) {
+	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
 	}
 

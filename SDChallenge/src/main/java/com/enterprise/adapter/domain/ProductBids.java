@@ -3,7 +3,8 @@
  */
 package com.enterprise.adapter.domain;
 
-import java.time.LocalDateTime;
+import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +19,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "productbids")
-public class ProductBids {
+public class ProductBids implements Serializable {
 	private static final long serialVersionUID = -3028114538116703623L;
 
 	@Id
@@ -27,9 +28,9 @@ public class ProductBids {
 	@Column(name = "productId", nullable = false)
 	private Long productId;
 	@Column(name = "bidStartTime", nullable = false)
-	private LocalDateTime bidStartTime;
+	private Date bidStartTime;
 	@Column(name = "bidStopTime", nullable = false)
-	private LocalDateTime bidStopTime;
+	private Date bidStopTime;
 	@Column(name = "winnerUserId", nullable = false)
 	private Long winnerUserId;
 	@Column(name = "minPrice", nullable = false)
@@ -53,19 +54,20 @@ public class ProductBids {
 		this.productId = productId;
 	}
 
-	public LocalDateTime getBidStartTime() {
+	
+	public Date getBidStartTime() {
 		return bidStartTime;
 	}
 
-	public void setBidStartTime(LocalDateTime bidStartTime) {
+	public void setBidStartTime(Date bidStartTime) {
 		this.bidStartTime = bidStartTime;
 	}
 
-	public LocalDateTime getBidStopTime() {
+	public Date getBidStopTime() {
 		return bidStopTime;
 	}
 
-	public void setBidStopTime(LocalDateTime bidStopTime) {
+	public void setBidStopTime(Date bidStopTime) {
 		this.bidStopTime = bidStopTime;
 	}
 
@@ -93,6 +95,8 @@ public class ProductBids {
 		this.numBidders = numBidders;
 	}
 
+	
+	
 	@Override
 	public String toString() {
 		return "ProductBids [id=" + id + ", productId=" + productId

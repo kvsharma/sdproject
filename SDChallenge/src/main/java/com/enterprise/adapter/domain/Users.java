@@ -3,6 +3,8 @@
  */
 package com.enterprise.adapter.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +18,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "users")
-public class Users {
+public class Users implements Serializable {
 	private static final long serialVersionUID = -3028114538116703621L;
 
 	@Id
@@ -60,6 +62,7 @@ public class Users {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	
 
 	@Override
 	public String toString() {

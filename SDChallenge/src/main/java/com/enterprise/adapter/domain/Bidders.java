@@ -3,7 +3,8 @@
  */
 package com.enterprise.adapter.domain;
 
-import java.time.LocalDateTime;
+import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +19,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "bidders")
-public class Bidders {
+public class Bidders implements Serializable {
 	private static final long serialVersionUID = -3028114538116703624L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,7 +31,7 @@ public class Bidders {
 	@Column(name = "amount", nullable = false)
 	private Long amount;
 	@Column(name = "bidTime", nullable = false)
-	private LocalDateTime bidTime;
+	private Date bidTime;
 
 	public Long getId() {
 		return id;
@@ -64,19 +65,19 @@ public class Bidders {
 		this.amount = amount;
 	}
 
-	public LocalDateTime getBidTime() {
+	public Date getBidTime() {
 		return bidTime;
 	}
 
-	public void setBidTime(LocalDateTime bidTime) {
+	public void setBidTime(Date bidTime) {
 		this.bidTime = bidTime;
 	}
 
+	
 	@Override
 	public String toString() {
-		return "Bidders [id=" + id + ", bidderUserId=" + bidderUserId
-				+ ", productBidId=" + productBidId + ", amount=" + amount
-				+ ", bidTime=" + bidTime + "]";
+		return "Bidders [id=" + id + ", bidderUserId=" + bidderUserId + ", productBidId=" + productBidId + ", amount="
+				+ amount + ", bidTime=" + bidTime + "]";
 	}
 
 }

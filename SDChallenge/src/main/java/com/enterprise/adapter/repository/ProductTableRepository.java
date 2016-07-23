@@ -13,7 +13,7 @@ public interface ProductTableRepository extends
 
 	Products findById(Long id);
 
-	Products findByProductId(Long id);
+	//Products findByProductId(Long id);
 
 	List<Products> findAll();
 }

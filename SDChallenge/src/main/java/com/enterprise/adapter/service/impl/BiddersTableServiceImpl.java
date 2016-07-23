@@ -3,8 +3,6 @@
  */
 package com.enterprise.adapter.service.impl;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -13,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.enterprise.adapter.domain.Bidders;
-import com.enterprise.adapter.domain.ProductBids;
 import com.enterprise.adapter.repository.BiddersTableRepository;
 import com.enterprise.adapter.repository.ProductBidsTableRepository;
 import com.enterprise.adapter.service.BidderTableService;
