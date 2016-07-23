@@ -7,7 +7,7 @@ import com.enterprise.adapter.domain.ProductBids;
  * @author anuj.kumar2
  *
  */
-public class CreateProductBidResponse {
+public class GetProductBidByIdResponse {
 	private ProductBids productBid;
 
 	public ProductBids getProductBid() {
@@ -20,7 +20,7 @@ public class CreateProductBidResponse {
 
 	@Override
 	public String toString() {
-		return "CreateProductBidResponse [productBid=" + productBid + "]";
+		return "GetProductBidByIdResponse [productBid=" + productBid + "]";
 	}
 
 }

@@ -7,7 +7,7 @@ import com.enterprise.adapter.domain.Products;
  * @author anuj.kumar2
  *
  */
-public class CreateProductResponse {
+public class GetProductByIdResponse {
 	private Products product;
 
 	public Products getProduct() {
@@ -20,7 +20,7 @@ public class CreateProductResponse {
 
 	@Override
 	public String toString() {
-		return "CreateProductResponse [product=" + product + "]";
+		return "GetProductByIdResponse [product=" + product + "]";
 	}
 
 }

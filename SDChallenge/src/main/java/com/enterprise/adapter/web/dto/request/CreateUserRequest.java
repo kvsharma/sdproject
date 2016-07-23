@@ -38,6 +38,7 @@ public class CreateUserRequest {
 
 	@Override
 	public String toString() {
-		return "CreateUser [name=" + name + ", email=" + email + ", phone=" + phone + "]";
+		return "CreateUser [name=" + name + ", email=" + email + ", phone="
+				+ phone + "]";
 	}
 }

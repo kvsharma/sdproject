@@ -7,7 +7,7 @@ import com.enterprise.adapter.domain.Bidders;
  * @author anuj.kumar2
  *
  */
-public class CreateBidderResponse {
+public class GetBidderByIdResponse {
 	private Bidders bidder;
 
 	public Bidders getBidder() {
@@ -20,7 +20,7 @@ public class CreateBidderResponse {
 
 	@Override
 	public String toString() {
-		return "CreateBidderResponse [bidder=" + bidder + "]";
+		return "GetBidderByIdResponse [bidder=" + bidder + "]";
 	}
 
 }
