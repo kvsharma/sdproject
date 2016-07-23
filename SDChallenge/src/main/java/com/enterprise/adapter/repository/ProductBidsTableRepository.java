@@ -12,7 +12,9 @@ import com.enterprise.adapter.domain.Products;
 public interface ProductBidsTableRepository extends
 		JpaRepository<ProductBids, Integer> {
 
-	Products findById(Long id);
+	ProductBids findById(Long id);
+
+	List<ProductBids> findByProductId(Long productId);
 
 	List<ProductBids> findAll();
 }

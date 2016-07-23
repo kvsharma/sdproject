@@ -46,4 +46,8 @@ public class ProductBidsTableServiceImpl implements ProductBidTableService {
 
 	}
 
+	@Override
+	public List<ProductBids> findByProductId(Long productId) {
+		return productBidsTableRepository.findByProductId(productId);
+	}
 }

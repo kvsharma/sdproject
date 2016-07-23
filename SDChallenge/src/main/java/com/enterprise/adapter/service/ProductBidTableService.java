@@ -16,6 +16,8 @@ public interface ProductBidTableService {
 
 	List<ProductBids> findAll();
 
+	List<ProductBids> findByProductId(Long productId);
+
 	void udpateRow(ProductBids user);
 
 	void deleteRow(ProductBids user);
