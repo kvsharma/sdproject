@@ -46,4 +46,14 @@ public class BiddersTableServiceImpl implements BidderTableService {
 
 	}
 
+	@Override
+	public List<Bidders> findByBidderUserId(Long userId) {
+		return biddersTableRepository.findByBidderUserId(userId);
+	}
+
+	@Override
+	public List<Bidders> findByProductId(Long productId) {
+		return biddersTableRepository.findByProductId(productId);
+	}
+
 }

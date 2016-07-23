@@ -16,6 +16,10 @@ public interface BidderTableService {
 
 	List<Bidders> findAll();
 
+	List<Bidders> findByBidderUserId(Long userId);
+
+	List<Bidders> findByProductId(Long productId);
+
 	void udpateRow(Bidders user);
 
 	void deleteRow(Bidders user);

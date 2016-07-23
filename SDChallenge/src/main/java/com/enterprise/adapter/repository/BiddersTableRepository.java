@@ -12,9 +12,9 @@ public interface BiddersTableRepository extends JpaRepository<Bidders, Integer> 
 
 	Bidders findById(Long id);
 
-	Bidders findByBidderUserId(Long id);
+	List<Bidders> findByBidderUserId(Long id);
 
-	Bidders findByProductId(Long id);
+	List<Bidders> findByProductId(Long id);
 
 	List<Bidders> findAll();
 }
